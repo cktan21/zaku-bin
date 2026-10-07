@@ -10,6 +10,7 @@ license=('AGPL-3.0-or-later')
 depends=(
     'glibc'
     'gcc-libs'
+    'hicolor-icon-theme'
     'libglvnd'
     'wayland'
     'xdg-utils'
@@ -18,14 +19,12 @@ depends=(
 provides=('zaku')
 conflicts=('zaku')
 
-options=('!strip')
-
 source_x86_64=(
-    "Zaku-${pkgver}-linux-x86_64.tar.gz::https://api.zaku.dev/releases/stable/${pkgver}/linux-x86_64/download"
+    "Zaku-${pkgver}-linux-${CARCH}.tar.gz::https://api.zaku.dev/releases/stable/${pkgver}/${CARCH}/download"
 )
 
 source_aarch64=(
-    "Zaku-${pkgver}-linux-aarch64.tar.gz::https://api.zaku.dev/releases/stable/${pkgver}/linux-aarch64/download"
+    "Zaku-${pkgver}-linux-${CARCH}.tar.gz::https://api.zaku.dev/releases/stable/${pkgver}/${CARCH}/download"
 )
 
 sha256sums_x86_64=(
@@ -37,13 +36,6 @@ sha256sums_aarch64=(
 )
 
 package() {
-    # Zaku ships its own runtime libraries and expects:
-    #
-    #   libexec/zaku
-    #   lib/*.so
-    #
-    # The binary has an RPATH of $ORIGIN/../lib.
-
     install -dm755 "$pkgdir/usr/lib/zaku"
 
     cp -a \
