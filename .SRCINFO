@@ -1,0 +1,22 @@
+pkgbase = zaku-bin
+	pkgdesc = Fast, open-source API client with fangs
+	pkgver = 26.0
+	pkgrel = 1
+	url = https://zaku.dev
+	arch = x86_64
+	arch = aarch64
+	license = AGPL-3.0-or-later
+	depends = glibc
+	depends = gcc-libs
+	depends = libglvnd
+	depends = wayland
+	depends = xdg-utils
+	provides = zaku
+	conflicts = zaku
+	options = !strip
+	source_x86_64 = Zaku-26.0-linux-x86_64.tar.gz::https://api.zaku.dev/releases/stable/26.0/linux-x86_64/download
+	sha256sums_x86_64 = 4386fac7cd7cfe891b77940ba67c392e687835c9103a722b255d710c26e55e67
+	source_aarch64 = Zaku-26.0-linux-aarch64.tar.gz::https://api.zaku.dev/releases/stable/26.0/linux-aarch64/download
+	sha256sums_aarch64 = 2ddd7c6a71cfc55a51eb37c68156e2607a8cadaab0a06c1d1cf599c55b6e6291
+
+pkgname = zaku-bin
